@@ -8,49 +8,10 @@ div.leaflet-marker-icon.location-filter.move-marker {
 }
 
 div.location-filter.button-container {
-    background: #bfbfbf;
-    background: rgba(0, 0, 0, 0.25);
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    padding: 3px;
-    padding-bottom: 4px;
+    background-color: white;
 }
 .leaflet-container div.location-filter.button-container a {
-    display: inline-block;
-    color: #6B6B6B;
-    font-size: 14px;
-    font-weight: normal;
-    text-align: center;
-    text-shadow: #A1BB9C 0 1px;
-    width: 265px;
-    text-decoration: none;
-    padding: 6px 7px;
-    border: 1px solid #9CC5A4;
-    -moz-border-radius: 3px;
-    -webkit-border-radius: 3px;
-    border-radius: 3px;
-    background: #c4e3b9;
-    background: rgba(218, 252, 205, 0.9);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(244, 244, 244, 0.9)), color-stop(100%, rgba(195, 195, 195, 0.9)));
-    background: -webkit-linear-gradient(top, rgba(244, 244, 244, 0.9) 0%, rgba(195, 195, 195, 0.9) 100%);
-    background: -moz-linear-gradient(top, rgba(244, 244, 244, 0.9) 0%, rgba(195, 195, 195, 0.9) 100%);
-    background: -ms-linear-gradient(top, rgba(244, 244, 244, 0.9) 0%, rgba(195, 195, 195, 0.9) 100%);
-    background: -o-linear-gradient(top, rgba(244, 244, 244, 0.9) 0%, rgba(195, 195, 195, 0.9) 100%);
-    background: linear-gradient(top, rgba(244, 244, 244, 0.9) 0%, rgba(195, 195, 195, 0.9) 100%);
-}
-.leaflet-container div.location-filter.button-container a:hover {
-    color: #6B6B6B;
-    background: #dde6d8;
-    background: rgba(245, 255, 240, 0.9);
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, rgba(260, 260, 260, 0.9)), color-stop(100%, rgba(211, 211, 211, 0.9)));
-    background: -webkit-linear-gradient(top, rgba(260, 260, 260, 0.9) 0%, rgba(211, 211, 211, 0.9) 100%);
-    background: -moz-linear-gradient(top, rgba(260, 260, 260, 0.9) 0%, rgba(211, 211, 211, 0.9) 100%);
-    background: -ms-linear-gradient(top, rgba(260, 260, 260, 0.9) 0%, rgba(211, 211, 211, 0.9) 100%);
-    background: -o-linear-gradient(top, rgba(260, 260, 260, 0.9) 0%, rgba(211, 211, 211, 0.9) 100%);
-    background: linear-gradient(top, rgba(260, 260, 260, 0.9) 0%, rgba(211, 211, 211, 0.9) 100%);
-}
-
-.leaflet-container div.location-filter.button-container a.adjust-button {
-    margin-left: 2px;
+    color: #6B6B6B; 
+    font-size: 15px;
+    width: 272px;
 }

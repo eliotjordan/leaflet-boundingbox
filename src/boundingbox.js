@@ -59,7 +59,7 @@ L.Control.Button = L.Class.extend({
 
 L.Control.ButtonContainer = L.Control.extend({
     options: {
-        position: 'topleft'
+        position: 'topright'
     },
 
     getContainer: function() {
@@ -94,7 +94,7 @@ L.LocationFilter = L.Class.extend({
         adjustButton: {
             text: "Select area within current zoom"
         },
-        buttonPosition: 'topleft'
+        buttonPosition: 'topright'
     },
 
     initialize: function(options) {
@@ -459,7 +459,7 @@ L.LocationFilter = L.Class.extend({
     _initializeButtonContainer: function() {
         var that = this;
         this._buttonContainer = new L.Control.ButtonContainer({
-        className: "location-filter button-container",
+        className: "location-filter button-container leaflet-bar",
         position: this.options.buttonPosition
     });
         this._buttonContainer.addTo(this._map);
