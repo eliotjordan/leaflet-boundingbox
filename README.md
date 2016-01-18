@@ -1,4 +1,4 @@
-leaflet-locationfilter
+leaflet-boundingbox
 ======================
 
 Provides a location filter for Leaflet. In short, the location filter is 

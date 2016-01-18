@@ -1,13 +1,10 @@
 /*
- * Leaflet.locationfilter - leaflet location filter plugin
+ * Leaflet.boundingbox (Modified from Leaflet.locationfilter)
  * Copyright (C) 2012, Tripbirds.com
- * http://tripbirds.com
- *
+ * Copyright (C) 2014, Eliot Jordan
  * Licensed under the MIT License.
- *
- * Date: 2012-09-24
- * Version: 0.1
  */
+
 L.LatLngBounds.prototype.modify = function(map, amount) {
     var sw = this.getSouthWest(),
         ne = this.getNorthEast(),
@@ -94,10 +91,6 @@ L.LocationFilter = L.Class.extend({
     includes: L.Mixin.Events,
 
     options: {
-        enableButton: {
-            enableText: "Select area",
-            disableText: "Remove selection"
-        },
         adjustButton: {
             text: "Select area within current zoom"
         },
@@ -116,7 +109,7 @@ L.LocationFilter = L.Class.extend({
     onAdd: function(map) {
         this._map = map;
 
-        if (this.options.enableButton || this.options.adjustButton) {
+        if (this.options.adjustButton) {
             this._initializeButtonContainer();
         }
 
@@ -146,6 +139,11 @@ L.LocationFilter = L.Class.extend({
             this._draw();
             this.fire("change", {bounds: bounds});
         }
+    },
+
+    _setBounds: function(bounds) {
+        this.setBounds(bounds);
+        this._map.fitBounds(bounds);
     },
 
     isEnabled: function() {
@@ -384,10 +382,6 @@ L.LocationFilter = L.Class.extend({
             this._buttonContainer.addClass("enabled");
         }
 
-        if (this._enableButton) {
-            this._enableButton.setText(this.options.enableButton.disableText);
-        }
-
         if (this.options.adjustButton) {
             this._createAdjustButton();
         }
@@ -430,10 +424,6 @@ L.LocationFilter = L.Class.extend({
             this._buttonContainer.removeClass("enabled");
         }
 
-        if (this._enableButton) {
-            this._enableButton.setText(this.options.enableButton.enableText);
-        }
-
         if (this._adjustButton) {
             this._adjustButton.remove();
         }
@@ -465,34 +455,13 @@ L.LocationFilter = L.Class.extend({
         }).addTo(this._buttonContainer);
     },
 
-    /* Create the location filter button container and the button that
-       toggles the location filter */
+    // Create the button container
     _initializeButtonContainer: function() {
         var that = this;
         this._buttonContainer = new L.Control.ButtonContainer({
-	    className: "location-filter button-container",
-	    position: this.options.buttonPosition
-	});
-
-        if (this.options.enableButton) {
-            this._enableButton = new L.Control.Button({
-                className: "enable-button",
-                text: this.options.enableButton.enableText,
-
-                onClick: function(event) {
-                    if (!that._enabled) {
-                        // Enable the location filter
-                        that.enable();
-                        that.fire("enableClick");
-                    } else {
-                        // Disable the location filter
-                        that.disable();
-                        that.fire("disableClick");
-                    }
-                }
-            }).addTo(this._buttonContainer);
-        }
-
+        className: "location-filter button-container",
+        position: this.options.buttonPosition
+    });
         this._buttonContainer.addTo(this._map);
     }
 });
